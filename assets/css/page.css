@@ -26,6 +26,14 @@
         @apply text-red-800;
       }
     }
+
+    #posts {
+      @apply mb-4 md:grid-cols-2! lg:grid-cols-3!;
+
+      & > *:nth-child(4) {
+        @apply lg:hidden!;
+      }
+    }
   }
 
   #chronik-mannschaft {
