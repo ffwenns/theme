@@ -1,7 +1,1 @@
 node_modules/
-resources/
-public/
-
-.hugo_build.lock
-*.sync-conflict*
-*.env
