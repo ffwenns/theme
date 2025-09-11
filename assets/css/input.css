@@ -78,26 +78,38 @@
     }
 
     summary {
-      @apply cursor-pointer select-none bg-gray-300 p-4 text-xl font-semibold text-gray-600;
+      @apply cursor-pointer bg-gray-300 p-4 text-xl font-semibold text-gray-600 select-none;
     }
 
     .content a:not([href^="#"]) {
       @apply text-red-700 underline;
     }
+
+    .content {
+      h2 {
+        @apply my-4 block border-b border-b-gray-300 text-2xl font-bold;
+      }
+
+      h3 {
+        @apply mt-4 block text-lg font-bold;
+      }
+
+      dt {
+        @apply font-bold;
+      }
+
+      dd {
+        @apply mb-4;
+      }
+
+      ul {
+        @apply list-disc pl-4;
+      }
+    }
   }
 
   h1 {
     @apply mb-4 block border-b border-b-gray-300 py-2 text-3xl font-bold;
-  }
-
-  #post main {
-    h2 {
-      @apply my-4 block border-b border-b-gray-300 text-2xl font-bold;
-    }
-
-    h3 {
-      @apply mt-4 block text-lg font-bold;
-    }
   }
 
   article {
@@ -167,7 +179,7 @@
     }
 
     summary {
-      @apply cursor-pointer select-none list-none p-4 text-xl font-semibold text-gray-600;
+      @apply cursor-pointer list-none p-4 text-xl font-semibold text-gray-600 select-none;
     }
     .content {
       @apply px-4 pb-4;

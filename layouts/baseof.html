@@ -35,9 +35,19 @@
       }
     </style>
 
-    {{ partialCached "head/css.html" . }}
+    {{- if hugo.IsDevelopment }}
+      {{- with resources.Get "css/output.css" }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" />
+      {{- end }}
+    {{- else }}
+      {{- with resources.Get "css/output.css" }}
+    <style>
+      {{ .Content | safeCSS }}
+    </style>
+      {{- end }}
+    {{- end }}
   </head>
-  <body id="{{ with .Params.layout }}{{ . }}{{ else }}{{ trim (replace .RelPermalink "/" "-") "-" }}{{ end }}" class="mr-auto! mx-auto max-w-[80rem] bg-white">
+  <body id="{{ with .Params.layout }}{{ . }}{{ else }}{{ trim (replace .RelPermalink "/" "-") "-" }}{{ end }}" class="mx-auto mr-auto! max-w-[80rem] bg-white">
     {{ partial "header.html" . }}
     {{ partial "nav.html" . }}
     {{ partial "cover.html" . }}
@@ -46,7 +56,7 @@
     <div class="page">
       {{ block "nav" . }}
         <div>
-          <nav class="z-5 sticky top-[72px] bg-blue-100 p-4">
+          <nav class="sticky top-[72px] z-5 bg-blue-100 p-4">
             <h3 class="mb-4 text-2xl font-semibold text-blue-600">{{ .CurrentSection.Title }}</h3>
 
             {{ $currentPage := . }}

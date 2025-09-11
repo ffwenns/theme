@@ -1,4 +1,101 @@
 {{ define "main" }}
-  {{ .Content }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  {{ if .Params.members }}
+    <div class="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      {{ range .Params.members }}
+        <div class="relative overflow-hidden">
+          {{ if .image }}
+            <img src="/images/mannschaft/{{ .image }}" alt="{{ .name }}" class="aspect-2/3 object-cover" loading="lazy" />
+          {{ else }}
+            <img src="/images/avatar.png" alt="{{ .name }}" class="aspect-2/3 object-cover" loading="lazy" />
+          {{ end }}
+
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+            <div class="absolute bottom-0 left-0 p-4 text-white">
+              <img src="/images/dienstgrade/{{ .rank }}.svg" alt="{{ .rank }}" class="mb-2 size-8" />
+
+              <h3 class="text-xs font-semibold xs:text-sm sm:text-base">{{ .rank }} {{ .name }}</h3>
+              <p class="line-calmp-2 mb-0 min-h-[2lh] text-xs sm:text-sm">{{ .role }}</p>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ with .Params.kommandanten }}
+    <details name="Kommando" open>
+      <summary>Kommandanten</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.kommandant_stv }}
+    <details name="Kommando">
+      <summary>Kommandant Stv.</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.schriftfuehrer }}
+    <details name="Kommando">
+      <summary>Schriftführer</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.kassiere }}
+    <details name="Kommando">
+      <summary>Kassiere</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.ehrenmitglieder }}
+    <details name="Kommando">
+      <summary>Ehrenmitglieder</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.patinnen }}
+    <details name="Kommando">
+      <summary>Patinnen</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.obermaschinisten }}
+    <details name="Kommando">
+      <summary>Obermaschinisten</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.atemschutzbeauftragte }}
+    <details name="Kommando">
+      <summary>Atemschutzbeauftragte</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.geraetewarte }}
+    <details name="Kommando">
+      <summary>Gerätewarte</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
+  {{ with .Params.jugendbetreuer }}
+    <details name="Kommando">
+      <summary>Jugendbetreuer</summary>
+      {{ partial "history.html" . }}
+    </details>
+  {{ end }}
+
   {{ partial "gallery.html" . }}
 {{ end }}

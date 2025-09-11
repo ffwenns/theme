@@ -37,10 +37,8 @@
   }
 
   #chronik-mannschaft {
-    .content {
-      img {
-        @apply aspect-3/2 object-cover;
-      }
+    .gallery {
+      @apply grid-cols-2!;
     }
   }
 

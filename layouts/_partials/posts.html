@@ -17,7 +17,7 @@
 
 <div id="posts" class="grid gap-4 overflow-clip lg:grid-cols-2">
   {{ range $index, $post := $posts }}
-    <a href="{{ $post.RelPermalink }}" class="fade-in block">
+    <a href="{{ $post.RelPermalink }}" class="block">
       <article class="relative overflow-hidden">
         {{ $cover := $post.Resources.GetMatch "cover.webp" }}
         {{ $image := $cover }}
