@@ -4,5 +4,8 @@ serve:
 watch:
 	npm run watch
 
+build:
+	npm run build
+
 install:
 	npm install
